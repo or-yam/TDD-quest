@@ -9,6 +9,8 @@ startFlow:
       params:
         person: keen
         messages:
+          - text: https://media.tenor.com/KQru_VOmJxcAAAAC/bird-knife.gif
+            delay: 2000
           - text: Now it’s time to **create the actual fix for the input creation**, to make those tests pass from RED to GREEN!
             delay: 2000
           - text: Send a PR when you are done
