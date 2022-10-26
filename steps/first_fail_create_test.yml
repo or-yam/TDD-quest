@@ -1,0 +1,61 @@
+id: first_fail_create_test
+learningObjectives:
+  - Find all the tests scenarios
+hints:
+  - ??
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: 'YADA YADA you are on the right direction'
+            delay: 2000
+          - text: 'Please add the test file to the backend under tests/unit/models/item.test.js'
+            delay: 3500
+          - text: "We don't want to fail twice on the same place. The test should make sure the image URL is valid"
+            delay: 3500
+          - text: 'If you are not familiar with jest tutorial you can read more here https://jestjs.io/docs/getting-started'
+            delay: 3500
+
+githubActions:
+  backend:
+    cmd: yarn jest item.test.js
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: '${eventType}'
+      cases:
+        github_pr_workflow_complete_success:
+          do:
+            - actionId: bot_message
+              params:
+                person: keen
+                messages:
+                  - text: I appreciate you trying, but I less appreciate you success. Check your test, then try again.
+                    delay: 2500
+        github_pr_workflow_complete_failure:
+          do:
+            - if:
+                conditions:
+                  - conditionId: github_is_file_added_in_push
+                    params:
+                      fileName: item.test.js
+                then:
+                  do:
+                    - actionId: bot_message
+                      params:
+                        person: keen
+                        messages:
+                          - text: 'Perfect execution! Well done.'
+                            delay: 1500
+                    - actionId: finish_step
+                else:
+                  do:
+                    - actionId: bot_message
+                      params:
+                        person: keen
+                        messages:
+                          - text: 'Hmm, I see you pushed some changes to a new branch, but it seems **you forgot to add the `item.test.js` file**. Could you please add it to the repo, commit, and **push it to Github**?'
+                            delay: 2500
