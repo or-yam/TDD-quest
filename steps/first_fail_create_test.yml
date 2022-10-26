@@ -9,13 +9,13 @@ startFlow:
       params:
         person: keen
         messages:
-          - text: Ok, so that’s what we should do! We don't want to fail twice in the same place. 
+          - text: We don't want to fail twice in the same place. 
             delay: 3500
           - text: So please **create a test file**, and **add it to the backend under** `tests/unit/models/item.test.js 
             delay: 3500
-          - text: In order to do that, your test should be writen as if the function isValidURL(url) exists under backend/utils/urlValidate.js
+          - text: In order to do that, your test should be writen as if the **function isValidURL(url) exists under backend/utils/urlValidate.js**
             delay: 3500
-          - text: If you are not familiar with our infrastructure for creating tests,  you can read more here https://jestjs.io/docs/getting-started'
+          - text: Oh, my bad - if you are not familiar with our infrastructure for creating tests,  you can read more here https://jestjs.io/docs/getting-started'
             delay: 3500
           - text: https://c.tenor.com/nx2CHa1a_5IAAAAd/furby.gif
             delay: 3500
