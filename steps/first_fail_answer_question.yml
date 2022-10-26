@@ -1,0 +1,43 @@
+id: first_fail_answer_question
+learningObjectives: 
+- Analyzing how to handle the situation 
+hints:
+- ??
+startFlow:
+  do:
+  - actionId: bot_message
+    params:
+      person: keen
+      messages:
+      - text: "bla bla bla something is wrong with the items images... we need to add some code to prevent that..."
+        delay: 2000
+      - text: "What do you think will be our first step?"
+        delay: 3500
+trigger:
+  type: user_message
+  params: 
+    person: keen
+  flowNode:
+    if:
+      conditions:
+      - conditionId: text_match_regex
+        params:
+          text: "${userMessageText}"
+          regex: test|tdd
+      then:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: blabla you right Yalla  !
+              delay: 1300
+        - actionId: finish_step
+      else:
+        do:
+        - actionId: bot_message
+          params:
+            person: keen
+            messages:
+            - text: mmm... not what I had in mind. \n here some [inspiration](https://youtu.be/u6QfIXgjwGQ)
+              delay: 2500
