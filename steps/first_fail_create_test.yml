@@ -8,10 +8,8 @@ startFlow:
     - actionId: bot_message
       params:
         person: keen
-        messages:
-          - text: 'YADA YADA you are on the right direction'
-            delay: 2000
-          - text: 'Please add the test file to the backend under tests/unit/models/item.test.js'
+        messages:          
+          - text: 'Please add a test file to the backend under `tests/unit/models/item.test.js`'
             delay: 3500
           - text: "We don't want to fail twice on the same place. The test should make sure the image URL is valid"
             delay: 3500
@@ -35,6 +33,10 @@ trigger:
                 messages:
                   - text: I appreciate you trying, but I less appreciate you success. Check your test, then try again.
                     delay: 2500
+            - actionId: github_pr_comment
+              params:
+                person: keen
+                message: mmm it doesn't look right
         github_pr_workflow_complete_failure:
           do:
             - if:
