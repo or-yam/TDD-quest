@@ -13,9 +13,9 @@ Explain what the quest is about and describe the main task the user needs to per
 
 ## Outline
 Describe each step in the quest. 
-- Step 1 [step id]: First_fail_Answer_Q
-- Step 2 [step id]: First_fail_Create_test
-- Step 3 [test id]: First_fail_test_pass
+- Step 1 [step id]: first_fail_answer_question
+- Step 2 [step id]: first_fail_create_test
+- Step 3 [step id]: first_fail_make_test_pass
 
 
 ## Textbook solution
