@@ -12,8 +12,6 @@ startFlow:
         messages:
           - text: Barnacles! We have something wrong with some items images 😱 
             delay: 3000
-          - text: We have a problem 
-            delay: 3500
           - text:  I just realized we're not validating new items image URLs, and users keep uploading weird furby GIFs!
             delay: 3500
           - text:  https://media.tenor.com/KE-5C3oI__kAAAAd/furby-cut.gif
