@@ -1,7 +1,7 @@
 id: first_fail
 title: First Fail
-description: "We have a bug in production. /n We'll have to fix it and make sure **it will not** be back."
-summary: "..."
+description: "We have a bug in production. We'll have to fix it and make sure **it will not** be back.” We'll make sure you have your process right to ensure a flawless outcome."
+summary: "Great Job! In this quest you learnt all about TDD. Now you've created, executed and run your tests to ensure the creation of your features are set up for success."
 level: beginner
 steps:
 - first_fail_answer_question

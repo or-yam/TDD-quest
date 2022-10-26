@@ -8,33 +8,36 @@ startFlow:
     - actionId: bot_message
       params:
         person: keen
-        messages:
-          - text: 'Now it is time to fix the item creation to make those tests pass. From RED to GREEN!'
-            delay: 2000
-          - text: 'Send a PR when you are done'
-            delay: 1000
+        messages:          
+          - text: 'Please add a test file to the backend under `tests/unit/models/item.test.js`'
+            delay: 3500
+          - text: "We don't want to fail twice on the same place. The test should make sure the image URL is valid"
+            delay: 3500
+          - text: 'If you are not familiar with jest tutorial you can read more here https://jestjs.io/docs/getting-started'
+            delay: 3500
 
 githubActions:
   backend:
-    capabilites:
-    - axios
-    - dotenv
-    testFile: testAddItems.js
+    cmd: yarn jest item.test.js
 trigger:
   type: github_pr_lifecycle_status
   flowNode:
     switch:
       key: '${eventType}'
       cases:
-        github_pr_workflow_complete_failure:
+        github_pr_workflow_complete_success:
           do:
             - actionId: bot_message
               params:
                 person: keen
                 messages:
-                  - text: Umm… something is not quite right, please take another look and try again.
+                  - text: I appreciate you trying, but I less appreciate you success. Check your test, then try again.
                     delay: 2500
-        github_pr_workflow_complete_success:
+            - actionId: github_pr_comment
+              params:
+                person: keen
+                message: mmm it doesn't look right
+        github_pr_workflow_complete_failure:
           do:
             - if:
                 conditions:
@@ -47,27 +50,14 @@ trigger:
                       params:
                         person: keen
                         messages:
-                          - text: Amazing. You can now merge the PR
+                          - text: 'Perfect execution! Well done.'
                             delay: 1500
-                            
-                    - actionId: github_pr_approve
-                      params:
-                        person: keen
-                        message: Amazing. You can now merge the PR
+                    - actionId: finish_step
                 else:
                   do:
                     - actionId: bot_message
                       params:
                         person: keen
                         messages:
-                          - text: It seems that your test file is missing. Can you check this?
+                          - text: 'Hmm, I see you pushed some changes to a new branch, but it seems **you forgot to add the `item.test.js` file**. Could you please add it to the repo, commit, and **push it to Github**?'
                             delay: 2500
-                    - actionId: github_pr_reject
-                      params:
-                        person: keen
-                        message: It seems that your test file is missing. Can you check this?
-              
-              
-        github_pr_merged:
-          do:
-          - actionId: finish_step
