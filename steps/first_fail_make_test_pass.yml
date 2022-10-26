@@ -41,7 +41,7 @@ trigger:
               conditions:
               - conditionId: github_is_file_added
                 params:
-                  fileName: backend/item.test.js
+                  fileName: backend/tests/unit/models/item.test.js
                 onFalseParams:
                   checks_failed_message: Your test file is missing. Can you check it?
                   

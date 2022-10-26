@@ -49,7 +49,7 @@ trigger:
             conditions:
               - conditionId: github_is_file_added
                 params:
-                  fileName: tests/unit/models/item.test.js
+                  fileName: backend/tests/unit/models/item.test.js
             then:
               do:
                 - actionId: bot_message
