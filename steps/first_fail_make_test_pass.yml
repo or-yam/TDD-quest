@@ -13,7 +13,7 @@ startFlow:
             delay: 2000
           - text: Now it’s time to **implement the isValidUrl function and use it when creating new items**, to make those tests pass from RED to GREEN!
             delay: 2000
-          - text: 'Send a PR when you are done'
+          - text: :codeInstruction[Send a PR when you are done]
             delay: 1000
 
 githubActions:
@@ -34,7 +34,7 @@ trigger:
               params:
                 person: keen
                 messages:
-                  - text: Umm… something is not quite right, please take another look and try again.
+                  - text: Umm… something is not quite right, please **take another look and try again.**
                     delay: 2500
         github_pr_workflow_complete_success:
           if:
