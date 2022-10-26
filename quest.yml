@@ -1,6 +1,6 @@
 id: first_fail
 title: First Fail
-description: "Learn TDD..."
+description: "We have a bug in production. /n We'll have to fix it and make sure **it will not** be back."
 summary: "..."
 level: beginner
 steps:
@@ -11,6 +11,5 @@ duration: 1.5
 skills:
 - tests
 - backend
-- tdd
 questDependency: docker_localsetup
 slogan: ...

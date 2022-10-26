@@ -3,7 +3,7 @@
 ## Quest Details 
 #### title: First Fail
 #### level: Beginner (1)
-#### skills: tests, backend, TDD
+#### skills: tests, backend
 #### dependencies: 
 
 
