@@ -1,6 +1,7 @@
 id: first_fail_answer_question
 learningObjectives: 
-- Analyzing how to handle the situation 
+- Getting familiar with modern methodologies
+- Build your confidence around your code
 hints:
 - In the TDD methodology we start by writing...
 startFlow:
@@ -9,9 +10,9 @@ startFlow:
     params:
       person: keen
       messages:
-      - text: "bla bla bla something is wrong with the items images... we need to add some code to prevent that..."
+      - text: "We have something wrong with the some items image 😱 /n I just realized we'r not validating new items image url !"
         delay: 2000
-      - text: "What do you think will be our first step?"
+      - text: "We need to make sure this will not happened again. /n What do you think should be our first step?"
         delay: 3500
 trigger:
   type: user_message
@@ -30,7 +31,7 @@ trigger:
           params:
             person: keen
             messages:
-            - text: blabla you right Yalla  !
+            - text: Great! Yalla lets add some tests 🚀
               delay: 1300
         - actionId: finish_step
       else:
@@ -39,5 +40,5 @@ trigger:
           params:
             person: keen
             messages:
-            - text: mmm... not what I had in mind. \n here some [inspiration](https://youtu.be/u6QfIXgjwGQ)
+            - text: mmm... not what I had in mind. \n here some [inspiration](https://youtu.be/u6QfIXgjwGQ)...
               delay: 2500
