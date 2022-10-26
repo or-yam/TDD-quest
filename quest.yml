@@ -12,6 +12,5 @@ skills:
 - tests
 - backend
 - tdd
-- communication
 questDependency: docker_localsetup
 slogan: ...
