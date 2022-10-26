@@ -18,7 +18,9 @@ startFlow:
             delay: 3500
           - text: like this one ^ only creepier 
             delay: 3500
-          - text: Of course we're going to fix the bug, but we want to be confident that it won't happen again.. \n What do you think should be our first step?
+          - text: Of course we're going to fix the bug, but **we want to be confident that it won't happen again**.
+            delay: 3500
+          - text: :codeInstruction[What do you think should be our first step?]
             delay: 3500
 trigger:
   type: user_message
@@ -50,9 +52,7 @@ trigger:
               messages:
                 - text: https://c.tenor.com/HytjLojMh2IAAAAM/sussyfurby.gif
                   delay: 2500
-                - text: mmm... not what I had in mind. Here you can find more information about our[favorite methodology](https://youtu.be/u6QfIXgjwGQ).
+                - text: mmm... not what I had in mind. Here you can find more information about our [favorite methodology](https://youtu.be/u6QfIXgjwGQ).
                   delay: 2500
-                - text: Here you can find more information about our[favorite methodology](https://youtu.be/u6QfIXgjwGQ).
-                  delay: 2500
-                - text: So, what do you think should be our first step?
+                - text: So, **what do you think should be our first step?**
                   delay: 2500
