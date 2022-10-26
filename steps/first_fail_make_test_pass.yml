@@ -9,9 +9,9 @@ startFlow:
       params:
         person: keen
         messages:
-          - text: 'Now it is time to fix the item creation to make those tests pass. From RED to GREEN!'
+          - text: Now it’s time to **create the actual fix for the input creation**, to make those tests pass from RED to GREEN!
             delay: 2000
-          - text: 'Send a PR when you are done'
+          - text: Send a PR when you are done
             delay: 1000
 
 githubActions:
