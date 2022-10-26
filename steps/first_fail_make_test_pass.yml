@@ -9,7 +9,9 @@ startFlow:
       params:
         person: keen
         messages:
-          - text: 'Now it is time to implement the isValidUrl function and user it when creating new items.\nLets make those tests pass. From RED to GREEN!'
+          - text: https://media.tenor.com/KQru_VOmJxcAAAAC/bird-knife.gif
+            delay: 2000
+          - text: Now it’s time to **implement the isValidUrl function and use it when creating new items**, to make those tests pass from RED to GREEN!
             delay: 2000
           - text: 'Send a PR when you are done'
             delay: 1000

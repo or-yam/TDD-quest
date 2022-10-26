@@ -10,11 +10,15 @@ startFlow:
       params:
         person: keen
         messages:
-          - text: We have something wrong with some items images 😱 \n I just realized we're not validating new items image URLs, and users keep uploading weird furby GIFs!
-            delay: 2000
-          - text: https://media.tenor.com/KE-5C3oI__kAAAAd/furby-cut.gif
+          - text: Barnacles! We have something wrong with some items images 😱 
+            delay: 3000
+          - text: We have a problem 
             delay: 3500
-          - text: like this ^ only creepier 
+          - text:  I just realized we're not validating new items image URLs, and users keep uploading weird furby GIFs!
+            delay: 3500
+          - text:  https://media.tenor.com/KE-5C3oI__kAAAAd/furby-cut.gif
+            delay: 3500
+          - text: like this one ^ only creepier 
             delay: 3500
           - text: Of course we're going to fix the bug, but we want to be confident that it won't happen again.. \n What do you think should be our first step?
             delay: 3500
@@ -35,7 +39,9 @@ trigger:
             params:
               person: keen
               messages:
-                - text: Great! Yalla lets add some tests 🚀
+                - text: https://i.gifer.com/77g5.gif
+                  delay: 1300
+                - text: My thoughts exactly! Lets add some tests 🚀
                   delay: 1300
           - actionId: finish_step
       else:
@@ -44,7 +50,11 @@ trigger:
             params:
               person: keen
               messages:
-                - text: mmm... not what I had in mind. \n Here you can find more information about our[favorite methodology](https://youtu.be/u6QfIXgjwGQ).
+                - text: https://c.tenor.com/HytjLojMh2IAAAAM/sussyfurby.gif
+                  delay: 2500
+                - text: mmm... not what I had in mind. Here you can find more information about our[favorite methodology](https://youtu.be/u6QfIXgjwGQ).
+                  delay: 2500
+                - text: Here you can find more information about our[favorite methodology](https://youtu.be/u6QfIXgjwGQ).
                   delay: 2500
                 - text: So, what do you think should be our first step?
                   delay: 2500
