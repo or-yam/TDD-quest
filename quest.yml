@@ -6,7 +6,7 @@ level: beginner
 steps:
 - first_fail_answer_question
 - first_fail_create_test
-# - first_fail_make_test_pass
+- first_fail_make_test_pass
 duration: 1.5
 skills:
 - tests

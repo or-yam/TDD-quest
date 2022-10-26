@@ -1,0 +1,73 @@
+id: first_fail_create_test
+learningObjectives:
+  - Find all the tests scenarios
+hints:
+  - ??
+startFlow:
+  do:
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: 'Now it is time to fix the item creation to make those tests pass. From RED to GREEN!'
+            delay: 2000
+          - text: 'Send a PR when you are done'
+            delay: 1000
+
+githubActions:
+  backend:
+    capabilites:
+    - axios
+    - dotenv
+    testFile: testAddItems.js
+trigger:
+  type: github_pr_lifecycle_status
+  flowNode:
+    switch:
+      key: '${eventType}'
+      cases:
+        github_pr_workflow_complete_failure:
+          do:
+            - actionId: bot_message
+              params:
+                person: keen
+                messages:
+                  - text: Umm… something is not quite right, please take another look and try again.
+                    delay: 2500
+        github_pr_workflow_complete_success:
+          do:
+            - if:
+                conditions:
+                  - conditionId: github_is_file_added_in_push
+                    params:
+                      fileName: item.test.js
+                then:
+                  do:
+                    - actionId: bot_message
+                      params:
+                        person: keen
+                        messages:
+                          - text: Amazing. You can now merge the PR
+                            delay: 1500
+                            
+                    - actionId: github_pr_approve
+                      params:
+                        person: keen
+                        message: Amazing. You can now merge the PR
+                else:
+                  do:
+                    - actionId: bot_message
+                      params:
+                        person: keen
+                        messages:
+                          - text: It seems that your test file is missing. Can you check this?
+                            delay: 2500
+                    - actionId: github_pr_reject
+                      params:
+                        person: keen
+                        message: It seems that your test file is missing. Can you check this?
+              
+              
+        github_pr_merged:
+          do:
+          - actionId: finish_step
