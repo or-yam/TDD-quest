@@ -47,9 +47,9 @@ trigger:
         github_pr_workflow_complete_failure:
           if:
             conditions:
-              - conditionId: github_is_file_added_in_push
+              - conditionId: github_is_file_added
                 params:
-                  fileName: item.test.js
+                  fileName: tests/unit/models/item.test.js
             then:
               do:
                 - actionId: bot_message
