@@ -9,15 +9,18 @@ startFlow:
       params:
         person: keen
         messages:
-          - text: 'Please add a test file to the backend under `tests/unit/models/item.test.js`'
+          - text: Ok, so that’s what we should do! We don't want to fail twice in the same place. 
             delay: 3500
-          - text: "We don't want to fail twice on the same place. The test should make sure the image URL is valid - PNG or JPEG"
+          - text: So please **create a test file**, and **add it to the backend under** `tests/unit/models/item.test.js /n 
             delay: 3500
-          - text: 'If you are not familiar with jest tutorial you can read more here https://jestjs.io/docs/getting-started'
+          - text: If you are not familiar with our infrastructure for creating tests,  you can read more here https://jestjs.io/docs/getting-started'
+            delay: 3500
+          - text: https://c.tenor.com/nx2CHa1a_5IAAAAd/furby.gif
             delay: 3500
 
 githubActions:
   backend:
+    testFile: testAddItems.js
     cmd: yarn jest item.test.js
 trigger:
   type: github_pr_lifecycle_status
@@ -31,32 +34,32 @@ trigger:
               params:
                 person: keen
                 messages:
-                  - text: I appreciate you trying, but I less appreciate you success. Check your test, then try again.
-                    delay: 2500
+                  - text:  I appreciate you succeeding, but the **test should probably fail**, since we didn’t fix the problem. Let’s **try again**, but this time, please be really bad at your work. 
+                    delay: 3500
             - actionId: github_pr_comment
               params:
                 person: keen
                 message: mmm it doesn't look right
         github_pr_workflow_complete_failure:
-          - if:
-              conditions:
-                - conditionId: github_is_file_added_in_push
+          if:
+            conditions:
+              - conditionId: github_is_file_added_in_push
+                params:
+                  fileName: item.test.js
+            then:
+              do:
+                - actionId: bot_message
                   params:
-                    fileName: item.test.js
-              then:
-                do:
-                  - actionId: bot_message
-                    params:
-                      person: keen
-                      messages:
-                        - text: 'Perfect execution! Well done.'
-                          delay: 1500
-                  - actionId: finish_step
-              else:
-                do:
-                  - actionId: bot_message
-                    params:
-                      person: keen
-                      messages:
-                        - text: 'Hmm, I see you pushed some changes to a new branch, but it seems **you forgot to add the `item.test.js` file**. Could you please add it to the repo, commit, and **push it to Github**?'
-                          delay: 2500
+                    person: keen
+                    messages:
+                      - text: 'Perfect execution! Well done 👏'
+                        delay: 1500
+                - actionId: finish_step
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: keen
+                    messages:
+                      - text: Hmm, I see you pushed some changes to a new branch, but it seems **you forgot to add the `item.test.js` file**. Could you please add it to the repo, commit, and **push it to Github**?
+                        delay: 2500
