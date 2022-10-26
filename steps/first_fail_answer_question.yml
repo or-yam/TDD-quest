@@ -2,7 +2,7 @@ id: first_fail_answer_question
 learningObjectives: 
 - Analyzing how to handle the situation 
 hints:
-- ??
+- In the TDD methodology we start by writing...
 startFlow:
   do:
   - actionId: bot_message
