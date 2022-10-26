@@ -22,6 +22,8 @@ startFlow:
 
 githubActions:
   backend:
+    capabilities:
+      - jest
     testFile: testAddItems.js
     cmd: yarn jest item.test.js
 trigger:
