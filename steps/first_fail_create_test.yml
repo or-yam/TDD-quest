@@ -18,6 +18,7 @@ startFlow:
 
 githubActions:
   backend:
+    testFile: testAddItems.js
     cmd: yarn jest item.test.js
 trigger:
   type: github_pr_lifecycle_status
