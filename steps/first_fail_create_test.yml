@@ -11,7 +11,7 @@ startFlow:
         messages:
           - text: We don't want to fail twice in the same place. 
             delay: 3500
-          - text: So please **create a test file**, and **add it to the backend under** `tests/unit/models/item.test.js 
+          - text: So please **create a test file**, and **add it to the backend under** `tests/unit/item.test.js 
             delay: 3500
           - text: In order to do that, your test should be writen as if the **function isValidURL(url) exists under backend/utils/urlValidate.js**
             delay: 3500
@@ -49,7 +49,7 @@ trigger:
             conditions:
               - conditionId: github_is_file_added
                 params:
-                  fileName: backend/tests/unit/models/item.test.js
+                  fileName: backend/tests/unit/item.test.js
             then:
               do:
                 - actionId: bot_message
