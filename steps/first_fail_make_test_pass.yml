@@ -37,9 +37,24 @@ trigger:
         github_pr_workflow_complete_success:
           if:
               conditions:
-              - conditionId: github_is_file_added_in_push
+              - conditionId: github_is_file_added
                 params:
-                  fileName: item.test.js
+                  fileName: backend/item.test.js
+                onFalseParams:
+                  checks_failed_message: Your test file is missing. Can you check it?
+                  
+              - conditionId: github_is_file_added
+                params:
+                  fileName: backend/utils/urlValidate.js
+                onFalseParams:
+                  checks_failed_message: urlValidate.js is missing. Can tou check it?
+                  
+              - conditionId: github_is_file_modified
+                params:
+                  fileName: backend/items/api/items.js
+                onFalseParams:
+                  checks_failed_message: items.js should be mofigied to use the new url validator.
+                    
               then:
                 do:
                 - actionId: bot_message
@@ -59,12 +74,12 @@ trigger:
                   params:
                     person: keen
                     messages:
-                      - text: It seems that your test file is missing. Can you check this?
+                      - text: ${checks_failed_message}
                         delay: 2500
                 - actionId: github_pr_reject
                   params:
                     person: keen
-                    message: It seems that your test file is missing. Can you check this?
+                    message: ${checks_failed_message}
 
         github_pr_merged:
           do:
