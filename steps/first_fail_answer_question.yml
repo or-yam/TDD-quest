@@ -10,9 +10,9 @@ startFlow:
       params:
         person: keen
         messages:
-          - text: "We have something wrong with the some items image 😱 /n I just realized we'r not validating new items image url !"
+          - text: "We have something wrong with the some items image 😱 \n I just realized we'r not validating new items image url !"
             delay: 2000
-          - text: 'We need to make sure this will not happened again. /n What do you think should be our first step?'
+          - text: 'We need to make sure this will not happened again. \n What do you think should be our first step?'
             delay: 3500
 trigger:
   type: user_message

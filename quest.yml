@@ -1,15 +1,15 @@
 id: first_fail
 title: First Fail
-description: "We have a bug in production. We'll have to fix it and make sure **it will not** be back.” We'll make sure you have your process right to ensure a flawless outcome."
+description: "We have a bug in production. We'll have to fix it and make sure **it will not** be back.\n We'll make sure you have your process right to ensure a flawless outcome."
 summary: "Great Job! In this quest you learnt all about TDD. Now you've created, executed and run your tests to ensure the creation of your features are set up for success."
 level: beginner
 steps:
-- first_fail_answer_question
-- first_fail_create_test
-- first_fail_make_test_pass
+  - first_fail_answer_question
+  - first_fail_create_test
+  - first_fail_make_test_pass
 duration: 1.5
 skills:
-- tests
-- backend
+  - tests
+  - backend
 questDependency: docker_localsetup
-slogan: ...
+slogan: Never let success get to your head
