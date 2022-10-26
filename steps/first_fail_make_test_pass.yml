@@ -35,36 +35,36 @@ trigger:
                   - text: Umm… something is not quite right, please take another look and try again.
                     delay: 2500
         github_pr_workflow_complete_success:
-          - if:
-              conditions:
-                - conditionId: github_is_file_added_in_push
+          if:
+            conditions:
+              - conditionId: github_is_file_added_in_push
+                params:
+                  fileName: item.test.js
+            then:
+              do:
+                - actionId: bot_message
                   params:
-                    fileName: item.test.js
-              then:
-                do:
-                  - actionId: bot_message
-                    params:
-                      person: keen
-                      messages:
-                        - text: Amazing. You can now merge the PR
-                          delay: 1500
+                    person: keen
+                    messages:
+                      - text: Amazing. You can now merge the PR
+                        delay: 1500
 
-                  - actionId: github_pr_approve
-                    params:
-                      person: keen
-                      message: Amazing. You can now merge the PR
-              else:
-                do:
-                  - actionId: bot_message
-                    params:
-                      person: keen
-                      messages:
-                        - text: It seems that your test file is missing. Can you check this?
-                          delay: 2500
-                  - actionId: github_pr_reject
-                    params:
-                      person: keen
-                      message: It seems that your test file is missing. Can you check this?
+                - actionId: github_pr_approve
+                  params:
+                    person: keen
+                    message: Amazing. You can now merge the PR
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: keen
+                    messages:
+                      - text: It seems that your test file is missing. Can you check this?
+                        delay: 2500
+                - actionId: github_pr_reject
+                  params:
+                    person: keen
+                    message: It seems that your test file is missing. Can you check this?
 
         github_pr_merged:
           do:

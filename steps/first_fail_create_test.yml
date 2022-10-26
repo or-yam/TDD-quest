@@ -38,25 +38,25 @@ trigger:
                 person: keen
                 message: mmm it doesn't look right
         github_pr_workflow_complete_failure:
-          - if:
-              conditions:
-                - conditionId: github_is_file_added_in_push
+          if:
+            conditions:
+              - conditionId: github_is_file_added_in_push
+                params:
+                  fileName: item.test.js
+            then:
+              do:
+                - actionId: bot_message
                   params:
-                    fileName: item.test.js
-              then:
-                do:
-                  - actionId: bot_message
-                    params:
-                      person: keen
-                      messages:
-                        - text: 'Perfect execution! Well done.'
-                          delay: 1500
-                  - actionId: finish_step
-              else:
-                do:
-                  - actionId: bot_message
-                    params:
-                      person: keen
-                      messages:
-                        - text: 'Hmm, I see you pushed some changes to a new branch, but it seems **you forgot to add the `item.test.js` file**. Could you please add it to the repo, commit, and **push it to Github**?'
-                          delay: 2500
+                    person: keen
+                    messages:
+                      - text: 'Perfect execution! Well done.'
+                        delay: 1500
+                - actionId: finish_step
+            else:
+              do:
+                - actionId: bot_message
+                  params:
+                    person: keen
+                    messages:
+                      - text: 'Hmm, I see you pushed some changes to a new branch, but it seems **you forgot to add the `item.test.js` file**. Could you please add it to the repo, commit, and **push it to Github**?'
+                        delay: 2500

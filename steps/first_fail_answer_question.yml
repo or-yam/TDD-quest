@@ -1,44 +1,44 @@
 id: first_fail_answer_question
-learningObjectives: 
-- Getting familiar with modern methodologies
-- Build your confidence around your code
+learningObjectives:
+  - Getting familiar with modern methodologies
+  - Build your confidence around your code
 hints:
-- In the TDD methodology we start by writing...
+  - In the TDD methodology we start by writing...
 startFlow:
   do:
-  - actionId: bot_message
-    params:
-      person: keen
-      messages:
-      - text: "We have something wrong with the some items image 😱 /n I just realized we'r not validating new items image url !"
-        delay: 2000
-      - text: "We need to make sure this will not happened again. /n What do you think should be our first step?"
-        delay: 3500
+    - actionId: bot_message
+      params:
+        person: keen
+        messages:
+          - text: "We have something wrong with the some items image 😱 /n I just realized we'r not validating new items image url !"
+            delay: 2000
+          - text: 'We need to make sure this will not happened again. /n What do you think should be our first step?'
+            delay: 3500
 trigger:
   type: user_message
-  params: 
+  params:
     person: keen
   flowNode:
     if:
       conditions:
-      - conditionId: text_match_regex
-        params:
-          text: "${userMessageText}"
-          regex: test|tdd
+        - conditionId: text_match_regex
+          params:
+            text: '${userMessageText}'
+            regex: test|tdd
       then:
         do:
-        - actionId: bot_message
-          params:
-            person: keen
-            messages:
-            - text: Great! Yalla lets add some tests 🚀
-              delay: 1300
-        - actionId: finish_step
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: Great! Yalla lets add some tests 🚀
+                  delay: 1300
+          - actionId: finish_step
       else:
         do:
-        - actionId: bot_message
-          params:
-            person: keen
-            messages:
-            - text: mmm... not what I had in mind. \n here some [inspiration](https://youtu.be/u6QfIXgjwGQ)...
-              delay: 2500
+          - actionId: bot_message
+            params:
+              person: keen
+              messages:
+                - text: mmm... not what I had in mind. \n here some [inspiration](https://youtu.be/u6QfIXgjwGQ)...
+                  delay: 2500
